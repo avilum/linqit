@@ -1,0 +1,2 @@
+# metacontainer
+Python container class
