@@ -1,12 +1,10 @@
-# metacontainer
-Make python instances act as one,<br>
-No more loops on lists of objects.
+# MetaContainer
+Make python instances act as one with a robust container.<br>
+No more loops, No more lists of objects.
 
 # Example
 Create your custom type:
 ```python
-from metacontainer import MetaContainer
-     
 class Person(object):
     def __init__(self, first_name, last_name):
         self._first_name = first_name
@@ -39,14 +37,15 @@ from metacontainer import MetaContainer
 john, bob = Person('John', 'Doe'), Person('Bob', 'Marley')
 c = MetaContainer(john, bob)
 
+# Powerful functionality
 c.first_name # ['John', 'Bob']
 c.full_name # ['John Doe', 'Bob Marley']
 c.do('Dishes') # ['John Doe is doing Dishes', 'Bob Marley is doing Dishes']
 c.json() # ['{"_first_name": "John", "_last_name": "Doe"}', '{"_first_name": "Bob", "_last_name": "Marley"}']
 
+# Dynamic during runtime
 bob.skill = 'Reggae'
 c.skill # 'Reggae'
-
 john.skill = 'Programming'
 c.skill # ['Programming', 'Reggae']
 
