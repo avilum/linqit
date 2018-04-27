@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cb1f00a-a3d0-4731-92d3-5db8a6993d5d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/metacontainer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_metacontainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metacontainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/metacontainer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +17,29 @@
       <file leaf-file-name="metacontainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/metacontainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+            <state relative-caret-position="433">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1502">
+              <caret line="237" selection-start-line="237" selection-end-line="237" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="765">
+                <caret line="51" lean-forward="true" selection-start-line="41" selection-end-line="51" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -107,6 +127,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/tests/test_metacontainer.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/metacontainer.py" />
       </list>
     </option>
@@ -156,8 +177,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetests for test_metacontainer.MetaContainerTests">
-    <configuration name="Doctests in metacontainer" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Nosetests in test_metacontainer.py">
+    <configuration name="Doctests in MetaContainer" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+      <module name="metacontainer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/metacontainer.py" />
+      <option name="CLASS_NAME" value="MetaContainer" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+    </configuration>
+    <configuration name="Doctests in metacontainer (1)" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
       <module name="metacontainer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,7 +240,7 @@
       <option name="_new_target" value="&quot;test_metacontainer.MetaContainerTests.test_different_types_sanity&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests in test_metacontainer.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="metacontainer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -213,37 +251,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_list_peoperties_with_unique_metadata_peoperty" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <module name="metacontainer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_metacontainer.MetaContainerTests.test_list_peoperties_with_unique_metadata_peoperty&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_metacontainer.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_list_peoperties_with_unique_metadata_peoperty" />
       <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests" />
-      <item itemvalue="Python tests.Doctests in metacontainer" />
-      <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" />
       <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_different_types_sanity" />
+      <item itemvalue="Python tests.Doctests in metacontainer (1)" />
+      <item itemvalue="Python tests.Doctests in MetaContainer" />
+      <item itemvalue="Python tests.Nosetests in test_metacontainer.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Nosetests in test_metacontainer.py" />
+        <item itemvalue="Python tests.Doctests in MetaContainer" />
+        <item itemvalue="Python tests.Doctests in metacontainer (1)" />
         <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests" />
         <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_different_types_sanity" />
-        <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" />
-        <item itemvalue="Python tests.Nosetests for test_metacontainer.MetaContainerTests.test_list_peoperties_with_unique_metadata_peoperty" />
-        <item itemvalue="Python tests.Doctests in metacontainer" />
       </list>
     </recent_temporary>
   </component>
@@ -261,35 +285,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests_test_list_peoperties_with_unique_metadata_peoperty - 2018.04.26 at 20h 42m 34s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_list_peoperties_with_unique_metadata_peoperty" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 32m 29s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests - 2018.04.26 at 20h 42m 41s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 32m 48s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests_test_get_list_properties_should_combine_values - 2018.04.26 at 20h 51m 35s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 33m 13s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests_test_get_list_properties_should_combine_values - 2018.04.26 at 20h 51m 55s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 33m 37s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests_test_get_list_properties_should_combine_values - 2018.04.26 at 20h 52m 18s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_get_list_properties_should_combine_values" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 33m 59s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests - 2018.04.26 at 20h 52m 21s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 35m 01s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests - 2018.04.26 at 20h 55m 24s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 35m 29s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests - 2018.04.26 at 20h 55m 26s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 35m 40s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests_test_different_types_sanity - 2018.04.26 at 20h 55m 56s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests.test_different_types_sanity" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 36m 17s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_metacontainer_MetaContainerTests - 2018.04.26 at 20h 56m 01s.xml">
-      <configuration name="Nosetests for test_metacontainer.MetaContainerTests" configurationId="tests" />
+    <history-entry file="Doctests_in_metacontainer_(1) - 2018.04.27 at 12h 41m 59s.xml">
+      <configuration name="Doctests in metacontainer (1)" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -320,24 +344,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/abc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="108" column="6" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/typing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="1736" column="6" selection-start-line="1736" selection-start-column="6" selection-end-line="1736" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1412">
@@ -372,10 +382,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/typing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1664">
+          <caret line="1736" column="6" selection-start-line="1736" selection-start-column="6" selection-end-line="1736" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="108" column="6" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1502">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="765">
+            <caret line="51" lean-forward="true" selection-start-line="41" selection-end-line="51" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/metacontainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        <state relative-caret-position="433">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>

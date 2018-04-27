@@ -5,25 +5,19 @@ class MetaContainer(object):
     """
     Holds several instances and makes them act as one.
 
-    >>> class Foo(object):
-    >>>     pass
-    >>>
-    >>> a, b = Foo(), Foo()
-    >>>
-    >>> a.foo = 1
-    >>> b.foo = 2
-    >>> container = MetaContainer(a, b)
-    >>> container.foo
-    >>> [1, 2]
-    >>>
-    >>> a.bar = ["a@b.com"]
-    >>> b.bar = ["c@d.com"]
-    >>> container.bar
-    >>> ["a@b.com", "c@d.com"]
-    >>>
-    >>> b.bar += 'new@email.com'
-    >>> c.bar
-    >>> ["a@b.com", "c@d.com", "new@email.com"]
+
+    >>> john, bob = Person('John', 'Doe'), Person('Bob', 'Marley')
+    >>> c = MetaContainer(john, bob)
+    >>> c.first_name # ['John', 'Bob']
+    >>> c.full_name # ['John Doe', 'Bob Marley']
+    >>> c.do('Dishes') # ['John Doe is doing Dishes', 'Bob Marley is doing Dishes']
+
+    >>> bob.skill = 'Reggae'
+    >>> c.skill # 'Reggae'
+
+    >>> john.skill = 'Programming'
+    >>> c.skill # ['Programming', 'Reggae']
+
 
     """
 
@@ -57,10 +51,14 @@ class MetaContainer(object):
         values = [getattr(metadata, item) for metadata in relevant_metadatas]
 
         # If the property is iterable
-        if all([hasattr(x, '__iter__') for x in values]):
-            # The attribute is an iterable. Simply contacting
+        if all([hasattr(attr_value, '__iter__') and not isinstance(attr_value, str) for attr_value in values]):
+            # The attribute is an iterable. Simply concatenating
             return list(chain.from_iterable(values))
 
+        # If the property is a method (also static)
+        elif all([callable(attr_value) for attr_value in values]):
+            # Calling the method with the metadata as a first parameter.
+            return lambda *args: [attr_value(*args) for metadata, attr_value in zip(relevant_metadatas, values)]
         return values[0] if len(values) == 1 else values
 
     def __repr__(self):
