@@ -17,6 +17,8 @@ class Person(object):
         return '{name} is {what}.'.format(name=self.full_name, what=self.hobby.lower())
 
 class Dog(object):
+    color = 'Pink'
+    
     def do_something(self):
         return 'Haw Haw!'
 ```
@@ -34,6 +36,7 @@ container = MetaContainer(john, doggy, bob)
 container.first_name  # ['John', 'Bob']
 container.full_name  # ['John Doe', 'Bob Marley']
 container.do_something()  # ['John Doe is coding', 'How How!', 'Bob Marley is playing guitar']
+container.color  # ['Pink']
 
 # Dynamic Runtime changes:
 bob.birthday = datetime(year=1945, month=2, day=6)
