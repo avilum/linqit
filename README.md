@@ -1,6 +1,6 @@
 # MetaContainer
-A robust python data structure.<br>
-Control python iterables with robust containers, lists and loops are redundant.
+A python data structure for robust syntax.<br>
+Write clean code with powerful syntax, instead of messy loops.<br>
 
 ## Lest have a closer look:
 Let's say we have a custom python object:
@@ -25,7 +25,7 @@ bob = Person('Bob', 'Marley', 'Playing guitar', 33)
 # Creating a container
 container = MetaContainer(john, bob)
 
-# Powerful functionality
+# Powerful syntax
 container.first_name  # ['John', 'Bob']
 container.full_name  # ['John Doe', 'Bob Marley']
 container.do_something()  # ['John Doe is coding', 'Bob Marley is playing guitar']
