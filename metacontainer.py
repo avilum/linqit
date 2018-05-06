@@ -1,5 +1,7 @@
 from itertools import chain
 
+DEFAULT_LAZY = True
+
 
 class MetaContainer(object):
     """
@@ -17,8 +19,6 @@ class MetaContainer(object):
 
     >>> john.skill = 'Programming'
     >>> c.skill # ['Programming', 'Reggae']
-
-
     """
 
     def __init__(self, *metadatas):
@@ -38,19 +38,24 @@ class MetaContainer(object):
     def metadatas(self, value):
         self._metadatas = value
 
+    def append(self, metadata):
+        self._metadatas += metadata
+
     def __getattr__(self, item):
         """
         Modifying the __getattr__ method so it will combine all the partial classes attributes into one.
         :param item: The attribute to look for
         :type item: string
         """
+        # Getting the metadatas which have the attribute
         relevant_metadatas = [m for m in self._metadatas if hasattr(m, item)]
         if not relevant_metadatas:
             raise AttributeError(item)
 
+        # Getting the attributes values from each relevant metadata
         values = [getattr(metadata, item) for metadata in relevant_metadatas]
 
-        # If the property is iterable
+        # If the property is iterable, but not a string
         if all([hasattr(attr_value, '__iter__') and not isinstance(attr_value, str) for attr_value in values]):
             # The attribute is an iterable. Simply concatenating
             return list(chain.from_iterable(values))
@@ -58,10 +63,22 @@ class MetaContainer(object):
         # If the property is a method (also static)
         elif all([callable(attr_value) for attr_value in values]):
             # Calling the method with the metadata as a first parameter.
-            return lambda *args: [attr_value(*args) for metadata, attr_value in zip(relevant_metadatas, values)]
-        return values[0] if len(values) == 1 else values
+            return lambda *args: MetaContainer([attr_value(*args) for metadata, attr_value in
+                                                zip(relevant_metadatas, values)])
+
+        return values
 
     def __repr__(self):
-        return "<{name} with {metadatas_count} metadatas>".format(name=self.__class__.__name__,
-                                                                  metadatas_count=len(self._metadatas))
+        return repr(self._metadatas)
+
+    def __iter__(self):
+        return iter(self._metadatas)
+
+    def where(self, expression):
+        selection = filter(expression, self._metadatas)
+        return list(selection)
+
+    def first(self, expression, default=None):
+        selection = list(filter(expression, self._metadatas))
+        return selection[0] if selection else default
 

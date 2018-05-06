@@ -1,52 +1,48 @@
 # MetaContainer
-Make python instances act as one with a robust container.<br>
-No more loops, No more lists of objects.
+A robust python data structure.<br>
+Control python iterables with robust containers, lists and loops are redundant.
 
-# Example
-Create your custom type:
+## Lest have a closer look:
+Let's say we have a custom python object:
 ```python
 class Person(object):
-    def __init__(self, first_name, last_name):
-        self._first_name = first_name
-        self._last_name = last_name
+    def __init__(self, first_name, last_name, hobby, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.hobby = hobby
+        self.age = age
+        self.full_name = ' '.join([self.first_name, self.last_name])
 
-    @property
-    def first_name(self):
-        return self._first_name
-
-    @property
-    def last_name(self):
-        return self._last_name
-
-    @property
-    def full_name(self):
-        return ' '.join([self._first_name, self._last_name])
-
-    def json(self):
-        import json
-        return json.dumps(self.__dict__)
-
-    def do(self, what):
-        return '{name} is doing {what}'.format(name=self.full_name, what=what)
+    def do_something(self):
+        return '{name} is {what}.'.format(name=self.full_name, what=self.hobby.lower())
 ```
 
-Create a container of Persons:
+## Let's play with a container:
 ```python
-from metacontainer import MetaContainer
+john = Person('John', 'Doe', 'Coding', 27)
+bob = Person('Bob', 'Marley', 'Playing guitar', 33)
 
-john, bob = Person('John', 'Doe'), Person('Bob', 'Marley')
-c = MetaContainer(john, bob)
+# Creating a container
+container = MetaContainer(john, bob)
 
 # Powerful functionality
-c.first_name # ['John', 'Bob']
-c.full_name # ['John Doe', 'Bob Marley']
-c.do('Dishes') # ['John Doe is doing Dishes', 'Bob Marley is doing Dishes']
-c.json() # ['{"_first_name": "John", "_last_name": "Doe"}', '{"_first_name": "Bob", "_last_name": "Marley"}']
+container.first_name  # ['John', 'Bob']
+container.full_name  # ['John Doe', 'Bob Marley']
+container.do_something()  # ['John Doe is coding', 'Bob Marley is playing guitar']
 
-# Dynamic during runtime
-bob.skill = 'Reggae'
-c.skill # 'Reggae'
-john.skill = 'Programming'
-c.skill # ['Programming', 'Reggae']
+# Dynamic Runtime changes:
+bob.birthday = datetime(year=1945, month=2, day=6)
+container.birthday  # datetime.datetime(1945, 2, 6, 0, 0)
+john.birthday = datetime(year=1970, month=1, day=1)
+container.birthday  # <class 'list'>: [datetime.datetime(1970, 1, 1, 0, 0), datetime.datetime(1945, 2, 6, 0, 0)]
+```
 
+## LINQ selections:
+```python
+# Robust container methods.
+assert bob == container.where(lambda p: p.age > 30)[0]
+assert 'marley' == container.first(lambda p: p.age > 30).last_name.lower()
+assert bob in container.where(lambda p: datetime.now() > p.birthday)
+assert john == container.where(lambda p: 'd' in p.last_name.lower())[0]
+# More to come.
 ```
