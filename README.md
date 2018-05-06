@@ -15,20 +15,25 @@ class Person(object):
 
     def do_something(self):
         return '{name} is {what}.'.format(name=self.full_name, what=self.hobby.lower())
+
+class Dog(object):
+    def do_something(self):
+        return 'Haw Haw!'
 ```
 
 ## Let's play with a container:
 ```python
 john = Person('John', 'Doe', 'Coding', 27)
+doggy = Dog()
 bob = Person('Bob', 'Marley', 'Playing guitar', 33)
 
 # Creating a container
-container = MetaContainer(john, bob)
+container = MetaContainer(john, doggy, bob)
 
 # Powerful syntax
 container.first_name  # ['John', 'Bob']
 container.full_name  # ['John Doe', 'Bob Marley']
-container.do_something()  # ['John Doe is coding', 'Bob Marley is playing guitar']
+container.do_something()  # ['John Doe is coding', 'How How!', 'Bob Marley is playing guitar']
 
 # Dynamic Runtime changes:
 bob.birthday = datetime(year=1945, month=2, day=6)
@@ -44,6 +49,7 @@ assert bob == container.where(lambda p: p.age > 30)[0]
 assert 'marley' == container.first(lambda p: p.age > 30).last_name.lower()
 assert bob in container.where(lambda p: datetime.now() > p.birthday)
 assert john == container.first(lambda p: 'd' in p.last_name.lower())
+assert doggy == container.first(lambda p: isinstance(p, Dog))
 
 # More to be implemented.
 ```
