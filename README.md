@@ -1,6 +1,7 @@
-# List
-A python data structure for robust syntax.<br>
-Write clean code with powerful syntax, instead of messy loops.<br>
+# Linqit !
+A builtin list-like type with robust behaviour, for clean code and fast development.<br>
+Extents the builtin list with .NET LINQ methods (Language Intagrated Queries) and more.<br>
+Write fast, save & clean code using powerful syntax, instead of messy loops and conditions.
 
 ## Lest have a closer look:
 Let's say we have a custom python object:
