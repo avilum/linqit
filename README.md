@@ -1,4 +1,4 @@
-# MetaContainer
+# List
 A python data structure for robust syntax.<br>
 Write clean code with powerful syntax, instead of messy loops.<br>
 
@@ -30,7 +30,7 @@ doggy = Dog()
 bob = Person('Bob', 'Marley', 'Playing guitar', 33)
 
 # Creating a container
-container = MetaContainer(john, doggy, bob)
+container = List(john, doggy, bob)
 
 # Powerful syntax
 container.first_name  # ['John', 'Bob']
