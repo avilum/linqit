@@ -12,6 +12,7 @@ contains
 disticts
 except_for
 first
+get_by_attr
 intersect
 last
 select
@@ -44,6 +45,7 @@ class Person():
 
 # Creating a list of people
 avi, bill, bob, harry = Person('Avi', 23), Person('Bill', 41), Person('Bob', 77), Person('Harry', 55)
+
 people = List(avi, bill, bob, harry)
 ```
 
