@@ -1,59 +1,48 @@
 # Linqit !
-A builtin list-like type with robust behaviour, for clean code and fast development.<br>
-Extents the builtin list with .NET LINQ methods (Language Intagrated Queries) and more.<br>
-Write fast, save & clean code using powerful syntax, instead of messy loops and conditions.
+A List-like type with robust functionality.<br>
+Extents the builtin list with .NET's Language Intagrated Queries (Linq) and more.<br>
+Develop with clean code using powerful syntax, instead of messy loops and conditions.
 
-## Lest have a closer look:
-Let's say we have a custom python object:
-```python
-class Person(object):
-    def __init__(self, first_name, last_name, hobby, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.hobby = hobby
-        self.age = age
-        self.full_name = ' '.join([self.first_name, self.last_name])
-
-    def do_something(self):
-        return '{name} is {what}.'.format(name=self.full_name, what=self.hobby.lower())
-
-class Dog(object):
-    color = 'Pink'
-    
-    def do_something(self):
-        return 'Haw Haw!'
-```
-
-## Let's play with a container:
-```python
-john = Person('John', 'Doe', 'Coding', 27)
-doggy = Dog()
-bob = Person('Bob', 'Marley', 'Playing guitar', 33)
-
-# Creating a container
-container = List(john, doggy, bob)
-
-# Powerful syntax
-container.first_name  # ['John', 'Bob']
-container.full_name  # ['John Doe', 'Bob Marley']
-container.do_something()  # ['John Doe is coding', 'How How!', 'Bob Marley is playing guitar']
-container.color  # ['Pink']
-
-# Dynamic Runtime changes:
-bob.birthday = datetime(year=1945, month=2, day=6)
-container.birthday  # <class 'list'>: [datetime.datetime(1945, 2, 6, 0, 0)]
-john.birthday = datetime(year=1970, month=1, day=1)
-container.birthday  # <class 'list'>: [datetime.datetime(1970, 1, 1, 0, 0), datetime.datetime(1945, 2, 6, 0, 0)]
-```
 
 ## LINQ selections:
-```python
-# Robust container methods.
-assert bob == container.where(lambda p: p.age > 30)[0]
-assert 'marley' == container.first(lambda p: p.age > 30).last_name.lower()
-assert bob in container.where(lambda p: datetime.now() > p.birthday)
-assert john == container.first(lambda p: 'd' in p.last_name.lower())
-assert doggy == container.first(lambda p: isinstance(p, Dog))
+```
 
-# More to be implemented.
+import List
+
+class Person():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return '<Person name="{}" age="{}">'.format(self.name, self.age)
+
+# Creating a list of people
+avi, bill, bob, harry = Person('Avi', 23), Person('Bill', 41), Person('Bob', 77), Person('Harry', 55)
+people = List(avi, bill, bob, harry)
+
+# LYNQ Selections
+old_people = people.where(lambda p: p.age > 40)                 [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
+old_people.first()                                              # <Person name="Bill" age="41">
+old_people.last()                                               # <Person name="Harry" age="55">
+old_people.any(lambda p: p.name.lower().startswith('b'))        # True
+old_people.where(lambda p: p.age == 55)                         # [<Person name="Harry" age="55">]
+old_people.skip(3).any()                                        # False
+old_people.skip(2).first()                                      # <Person name="Harry" age="55">
+
+# Adding people to the list in various ways
+new_kids_in_town = [Person('Chris', 18), Person('Danny', 16)]
+people = people.concat(new_kids_in_town)
+people.append(Person('John', 17))
+
+# More selections
+teenagers = people.where(lambda p: 20 >= p.age >= 13)
+teenagers_names = ['Chris', 'Danny', 'John']                    # ['Chris', 'Danny', 'John']
+teenagers_average_age = teenagers.age.avg                       # 17
+danny = teenagers.first(lambda t: t.name == 'Danny')            # <Person name="Danny" age="16">
+
+
+oldest_teen = teenagers.last()                                  # <Person name="Chris" age="18">
+names = people.name                                             # ['Avi', 'Bill', 'Bob', 'Harry', 'Chris', 'John']
+ages = people.age                                               # [23, 41, 77, 55, 18, 17]
 ```
