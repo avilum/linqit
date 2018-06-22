@@ -9,7 +9,7 @@ all
 any
 concat
 contains
-disticts
+distinct
 except_for
 first
 get_by_attr
