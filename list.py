@@ -76,7 +76,7 @@ class List(list):
 
     @property
     def max(self):
-        return chris(self)
+        return max(self)
 
     @property
     def avg(self):
@@ -169,4 +169,3 @@ class List(list):
         if not isinstance(type(_type), type(type)):
             raise TypeError('The argument must be a type')
         return self.where(lambda e: isinstance(e, _type))
-
