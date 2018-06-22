@@ -3,10 +3,34 @@ A list-like type with fun functionality.<br>
 Extents the builtin list with .NET's Language Intagrated Queries (Linq) and more.<br>
 Write clean code with powerful syntax. Forget about messy loops, conditions and list comprehensions.
 
+#### Methods:
+```
+all
+any
+concat
+contains
+disticts
+except_for
+first
+intersect
+last
+select
+skip
+take
+where
+of_type
+```
+#### Properties:
+```
+sum
+min
+max
+avg
+sorted
+```
 
 ## Creating a list of people
 ```
-
 import List
 
 class Person():
@@ -25,7 +49,7 @@ people = List(avi, bill, bob, harry)
 
 ## LINQ selections, cleaner code
 ```python
-old_people = people.where(lambda p: p.age > 40)                 [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
+old_people = people.where(lambda p: p.age > 40)                 # [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
 old_people.first()                                              # <Person name="Bill" age="41">
 old_people.last()                                               # <Person name="Harry" age="55">
 old_people.any(lambda p: p.name.lower().startswith('b'))        # True
@@ -51,6 +75,7 @@ oldest_teen = teenagers.last()                                  # <Person name="
 names = people.name                                             # ['Avi', 'Bill', 'Bob', 'Harry', 'Chris', 'John']
 ages = people.age                                               # [23, 41, 77, 55, 18, 17]
 teenagers_names = teenagers.name                                # ['Chris', 'Danny', 'John']
+teenagers_names.take(2).except_for(lambda n: n == 'Danny')      # ['Chris']
 teenagers.age.min                                               # 16
 teenagers.age.avg                                               # 17
 teenagers.age.max                                               # 18
