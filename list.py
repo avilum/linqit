@@ -44,13 +44,13 @@ class List(list):
         attributes_values = List([getattr(obj, item) for obj in relevant_objects])
 
         # If the property is iterable, but not a string
-        if all([hasattr(attr_value, '__iter__') and not isinstance(attr_value, str) for attr_value in
-                attributes_values]):
+        if all(hasattr(attr_value, '__iter__') and not isinstance(attr_value, str) for attr_value in
+                attributes_values):
             # The attribute is an iterable. Simply concatenating
             return List(chain.from_iterable(attributes_values))
 
         # If the property is a method (also static)
-        elif all([callable(attr_value) for attr_value in attributes_values]):
+        elif all(callable(attr_value) for attr_value in attributes_values):
             # Calling the method with the object as a first parameter.
             # attributes_values are the delegates to the methods of all the objects.
             return lambda *args: List([attr_value(*args) for obj, attr_value in
