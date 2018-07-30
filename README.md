@@ -1,6 +1,6 @@
 # Linqit !
 A list-like type with fun functionality.<br>
-Extents the builtin list with .NET's Language Intagrated Queries (Linq) and more.<br>
+Extends the builtin list with .NET's Language Integrated Queries (Linq) and more.<br>
 Write clean code with powerful syntax. Forget about messy loops, conditions and list comprehensions.
 
 #### Methods:
@@ -59,7 +59,7 @@ old_people.where(lambda p: p.age == 55)                         # [<Person name=
 old_people.skip(3).any()                                        # False
 old_people.skip(2).first()                                      # <Person name="Harry" age="55">
 
-# Isn't it better then "for", "if", "else", "filter", "map" and list comprehensions in the middle of your code?
+# Isn't it better than "for", "if", "else", "filter", "map" and list comprehensions in the middle of your code?
 
 ```
 ## More selections
