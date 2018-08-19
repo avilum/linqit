@@ -69,7 +69,7 @@ people += new_kids_in_town # Also works: people = people.concat(new_kids_in_town
 
 teenagers = people.where(lambda p: 20 >= p.age >= 13)
 danny = teenagers.first(lambda t: t.name == 'Danny')            # <Person name="Danny" age="16">
-oldest_teen = teenagers.last()                                  # <Person name="Chris" age="18">
+oldest_teen = teenagers.last()                                  # <Person name="John" age="17">
 ```
 
 ## Dynamic attributes
