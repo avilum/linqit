@@ -5,7 +5,8 @@ Write clean code with powerful syntax. Forget about messy loops, conditions and 
 Multiple filter/map/list-comprehensions, aggregating on one another, are not pythonic at all.<br>
 I love python, but sometimes - python can be SO NOT PYTHONIC.<br>
 Some of the methods might look rediculous for a single call, comparing to the regular python syntax.<br>
-The whole idea is is to use it for nested, multiple filters/modifications :). Here are some use cases: <br>
+The whole idea is is to use it for nested, multiple filters/modifications :).<br>
+Here are some use cases: <br>
 
 #### Methods:
 ```
