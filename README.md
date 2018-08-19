@@ -1,7 +1,9 @@
 # Linqit !
 A list-like type with fun functionality.<br>
 Extends the builtin list with .NET's Language Integrated Queries (Linq) and more.<br>
-Write clean code with powerful syntax. Forget about messy loops, conditions and list comprehensions.
+Write clean code with powerful syntax. Forget about messy loops, conditions and nested list comprehensions.
+Multiple filter/map/list-comprehensions, aggregating on on another, are not readable.
+I love python, but sometimes - python can be SO NOT PYTHONIC. Here are some great use cases :)
 
 #### Methods:
 ```
