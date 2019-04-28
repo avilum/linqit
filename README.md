@@ -1,8 +1,8 @@
 # Linqit !
-A list-like type with fun functionality.<br>
-Extends the builtin list with .NET's Language Integrated Queries (Linq) and more.<br>
-Write clean code with powerful syntax. Forget about messy loops, conditions and nested filters.<br>
-Multiple filter/map/list-comprehensions, aggregating on one another, are not pythonic at all.<br>
+Extends python's list builtin with fun, robust functionality - .NET's Language Integrated Queries (Linq) and more.<br>
+Write clean code with powerful syntax.<br>
+Stop using about loops, xomplex conditions, list comperhension and filters.<br>
+We all use multiple filters in our code. That's not pythonic at all.<br>
 I love python, but sometimes - python can be SO NOT PYTHONIC.<br>
 Some of the methods might look rediculous for a single call, comparing to the regular python syntax.<br>
 The whole idea is is to use it for nested, multiple filters/modifications :).<br>
@@ -35,7 +35,7 @@ avg
 sorted
 ```
 
-## Creating a list of people
+## Let's play with a list of people, a custom type.
 ```
 import List
 
@@ -54,7 +54,7 @@ avi, bill, bob, harry = Person('Avi', 23), Person('Bill', 41), Person('Bob', 77)
 people = List(avi, bill, bob, harry)
 ```
 
-## LINQ selections, cleaner code
+## Use LINQ selections, write cleaner code
 ```python
 old_people = people.where(lambda p: p.age > 23) # It's a joke! :) [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
 old_people.first()                                              # <Person name="Bill" age="41">
@@ -77,7 +77,7 @@ danny = teenagers.first(lambda t: t.name == 'Danny')            # <Person name="
 oldest_teen = teenagers.last()                                  # <Person name="John" age="17">
 ```
 
-## Dynamic attributes
+## Let's make python more dynamic
 ```python
 names = people.name                                             # ['Avi', 'Bill', 'Bob', 'Harry', 'Chris', 'John']
 ages = people.age                                               # [23, 41, 77, 55, 18, 17]
