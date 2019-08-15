@@ -5,7 +5,10 @@ Stop using loops, complex conditions, list comperhension and filters.<br>
 Doesn't it looks better? <br>
 ```python
 employees = List()
-# fill the list with whatever you want... like a list of <Programmer> objects.
+
+# Go ahead and fill the list with whatever you want... like a list of <Programmer> objects.
+
+# Then play:
 my_last_pizza_slice = programmers.where(lambda e:e.experience > 15)
                       .except_for(juniors)
                       .except_for(vegans)
@@ -47,7 +50,7 @@ avg
 sorted
 ```
 
-## Let's play with a list of people, a custom type.
+## Deeper - Let's play with a list of people, a custom type.
 ```
 import List
 
