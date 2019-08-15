@@ -1,11 +1,23 @@
 # Linqit !
 Extends python's list builtin with fun, robust functionality - .NET's Language Integrated Queries (Linq) and more.<br>
-Write clean code with powerful syntax.<br>
-Stop using about loops, xomplex conditions, list comperhension and filters.<br>
-We all use multiple filters in our code. That's not pythonic at all.<br>
-I love python, but sometimes - python can be SO NOT PYTHONIC.<br>
-Some of the methods might look rediculous for a single call, comparing to the regular python syntax.<br>
+Write clean code with powerful syntax.<br><br>
+Stop using loops, complex conditions, list comperhension and filters.<br>
+Doesn't it looks better? <br>
+```python
+employees = List()
+# fill the list with whatever you want... like a list of <Programmer> objects.
+my_last_pizza_slice = programmers.where(lambda e:e.experience > 15)
+                      .except_for(juniors)
+                      .except_for(vegans)
+                      .of_type(AviType)
+                      .take(3)
+                      .select(avi:avi.lunch)
+                      .last() # <Pizza object>
+```
+
+We all use multiple aggregations in our code, while multiple filters/comprehentions are not pythonic at all.<br>
 The whole idea is is to use it for nested, multiple filters/modifications :).<br>
+Some of the methods might look rediculous for a single call, comparing to the regular python syntax.<br>
 Here are some use cases: <br>
 
 #### Methods:
