@@ -1,4 +1,4 @@
-# Linqit !
+# Linqit!
 Extends python's list builtin with fun, robust functionality - .NET's Language Integrated Queries (Linq) and more.<br>
 Write clean code with powerful syntax.<br><br>
 Stop using loops, complex conditions, list comperhension and filters.<br>
