@@ -1,6 +1,6 @@
 from datetime import datetime
 from unittest import TestCase
-from list import List
+from linqit import List
 
 
 class Mock(object):

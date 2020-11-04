@@ -1,9 +1,15 @@
 # Linqit!
 Extends python's list builtin with fun, robust functionality - .NET's Language Integrated Queries (Linq) and more.<br>
 Write clean code with powerful syntax.<br><br>
+```shell script
+pip install linqit
+```
 Stop using loops, complex conditions, list comperhension and filters.<br>
 Doesn't it looks better? <br>
 ```python
+from linqit import List
+
+
 programmers = List()
 Avi = type('Avi', (), {})
 
