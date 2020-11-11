@@ -1,5 +1,6 @@
 from datetime import datetime
 from unittest import TestCase
+
 from linqit import List
 
 
@@ -213,3 +214,22 @@ class ListTests(TestCase):
         self.assertEqual(self.list[1].name, self.list.concat(self.list).where(lambda e: e.age > 18).skip(1).except_for(
             lambda e: e.name == 'bob').select(
             lambda x: x.name).last())
+
+    def test_order_by_bare(self):
+        data = [1, -1, 7, 200, 4, 3]
+        sorted_data = sorted(data)
+
+        linq_data = List(data).order_by()
+        self.assertEqual(sorted_data, linq_data)
+
+    def test_order_by_complex(self):
+        data = [
+            Person('jake', 'samson', None, 32),
+            Person('sam', 'thompson', None, 44),
+            Person('sarah', 'smith', None, 41),
+            Person('zoe', 'lee', None, 27),
+        ]
+        sorted_data = sorted(data, key=lambda p: p.age, reverse=True)
+
+        linq_data = List(data).order_by(lambda p: -p.age)
+        self.assertEqual(sorted_data, linq_data)
