@@ -7,24 +7,26 @@ pip install linqit
 Stop using loops, complex conditions, list comperhension and filters.<br>
 Doesn't it looks better? <br>
 ```python
+from seven_dwwarfs import Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey, Doc
 from linqit import List
 
-
-programmers = List()
-Avi = type('Avi', (), {})
-
 # Go ahead and fill the list with whatever you want... like a list of <Programmer> objects.
+programmers = List()
+Avi = type("Avi", (), {})
+elon_musk = Entrepreneur(talented=True)
 
 # Then play:
-last_hot_pizza_slice = programmers.where(lambda e:e.experience > 15)
-                      .except_for(elon_musk)
-                      .of_type(Avi)
-                      .take(3) # [<Avi>, <Avi>, <Avi>]
-                      .select(lambda avi:avi.lunch) # [<Pizza>, <Pizza>, <Pizza>]
-                      .where(lambda p:p.is_hot() and p.origin != 'Pizza Hut').
-                      .last() # <Pizza>
-                      .slices.last() # <PizzaSlice>
-                      
+last_hot_pizza_slice = (
+    programmers.where(lambda e: e.experience > 15)
+    .except_for(elon_musk)
+    .of_type(Avi)
+    .take(3)  # [<Avi>, <Avi>, <Avi>]
+    .select(lambda avi: avi.lunch)  # [<Pizza>, <Pizza>, <Pizza>]
+    .where(lambda p: p.is_hot() and p.origin != "Pizza Hut")
+    .last()  # <Pizza>
+    .slices.last()  # <PizzaSlice>
+)
+
 # What do you think?
 ```
 
