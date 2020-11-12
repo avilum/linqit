@@ -204,7 +204,7 @@ class List(list):
 
     def order_by(self, expression=None):
         """
-        Returns a List of data, sorted according to expression. If not expression give, the default sort is used.
+        Returns a List of data, sorted according to expression. If no expression is given, the default sort is used.
         """
         sorted_data = sorted(self, key=expression)
         return List(sorted_data)
