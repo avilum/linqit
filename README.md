@@ -61,7 +61,7 @@ sorted
 ```
 
 ## Deeper - Let's play with a list of people, a custom type.
-```
+```python
 import List
 
 class Person():
@@ -70,7 +70,7 @@ class Person():
         self.age = age
 
     def __repr__(self):
-        return '<Person name="{}" age="{}">'.format(self.name, self.age)
+        return 'Person(name="{}", age={})'.format(self.name, self.age)
 
 
 # Creating a list of people
