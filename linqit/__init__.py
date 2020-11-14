@@ -3,7 +3,7 @@ from itertools import chain
 
 DEFAULT_LAZY = True
 
-# A default variable for the fucntion, so None as an argument will be valid, but not default.
+# A default variable for the function, so None as an argument will be valid, but not default.
 _NONE = type('_NONE', (object,), {})
 
 
@@ -201,6 +201,13 @@ class List(list):
             if default != _NONE:
                 return default
             raise
+
+    def order_by(self, expression=None):
+        """
+        Returns a List of data, sorted according to expression. If no expression is given, the default sort is used.
+        """
+        sorted_data = sorted(self, key=expression)
+        return List(sorted_data)
 
     def select(self, expression):
         """
