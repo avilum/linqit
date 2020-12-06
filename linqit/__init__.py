@@ -6,6 +6,8 @@ DEFAULT_LAZY = True
 # A default variable for the function, so None as an argument will be valid, but not default.
 _NONE = type('_NONE', (object,), {})
 
+# Allows truthiness filters
+_NO_EXPR = lambda x:x
 
 class List(list):
     """
@@ -105,21 +107,26 @@ class List(list):
         """
         return sorted(self)
 
-    def all(self, expression):
+    def all(self, expression=_NO_EXPR):
         """
         Returns True if all of the objects fulfill the expression. Returns False otherwise.
         """
-        return len(List(filter(expression, self))) == len(self)
+        for i in self:
+            if not expression(i):
+                return False
+        return True
+        # return len(List(filter(expression, self))) == len(self)
 
-    def any(self, expression=_NONE):
+    def any(self, expression=_NO_EXPR):
         """
         Returns True if any of the objects fulfill the expression. Returns False otherwise.
         """
         if not self:
             return False
-        if expression == _NONE:
-            return True
-        return len(List(filter(expression, self))) > 0
+        for i in self:
+            if expression(i):
+                return True
+        return False  # for an empty iterable, all returns True!
 
     def concat(self, second):
         """

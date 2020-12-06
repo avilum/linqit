@@ -7,6 +7,18 @@ from linqit import List
 class Mock(object):
     pass
 
+counter = 0
+def func_samson(x):
+    global counter
+    counter += 1
+    return x.last_name == 'samson'
+def func_lee(x):
+    global counter
+    counter += 1
+    return x.last_name == 'lee'
+
+
+
 
 class Person(object):
     def __init__(self, first_name, last_name, hobby, age):
@@ -233,3 +245,42 @@ class ListTests(TestCase):
 
         linq_data = List(data).order_by(lambda p: -p.age)
         self.assertEqual(sorted_data, linq_data)
+
+    def test_any_short_circuit(self):
+        data = [
+            Person('jake', 'samson', None, 32),
+            Person('sam', 'thompson', None, 44),
+            Person('sarah', 'smith', None, 41),
+            Person('zoe', 'lee', None, 27),
+        ]
+
+        global counter
+        counter = 0
+        linq_data = List(data).any(func_samson)
+        print(data)
+        self.assertEqual(linq_data, True)
+        self.assertEqual(counter,1)
+
+        counter = 0
+        linq_data = List(data).any(func_lee)
+        print(data)
+        self.assertEqual(linq_data, True)
+        self.assertEqual(counter,4)
+
+    def test_any_short_circuit(self):
+        data = [
+            Person('jake', 'samson', None, 32),
+            Person('sam', 'samson', None, 44),
+            Person('sarah', 'smith', None, 41),
+            Person('zoe', 'lee', None, 27),
+        ]
+
+        global counter
+        counter = 0
+        linq_data = List(data).all(func_samson)
+        print(data)
+        self.assertEqual(linq_data, False)
+        self.assertEqual(counter,3)
+
+
+
