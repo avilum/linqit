@@ -246,7 +246,7 @@ class ListTests(TestCase):
         linq_data = List(data).order_by(lambda p: -p.age)
         self.assertEqual(sorted_data, linq_data)
 
-    def test_any_short_circuit(self):
+    def test_any_method_short_circuit(self):
         data = [
             Person('jake', 'samson', None, 32),
             Person('sam', 'thompson', None, 44),
@@ -257,20 +257,18 @@ class ListTests(TestCase):
         global counter
         counter = 0
         linq_data = List(data).any(func_samson)
-        print(data)
         self.assertEqual(linq_data, True)
         self.assertEqual(counter,1)
 
         counter = 0
         linq_data = List(data).any(func_lee)
-        print(data)
         self.assertEqual(linq_data, True)
         self.assertEqual(counter,4)
 
-    def test_any_short_circuit(self):
+    def test_all_method_short_circuit(self):
         data = [
             Person('jake', 'samson', None, 32),
-            Person('sam', 'samson', None, 44),
+            Person('sam', 'james', None, 44),
             Person('sarah', 'smith', None, 41),
             Person('zoe', 'lee', None, 27),
         ]
@@ -278,9 +276,21 @@ class ListTests(TestCase):
         global counter
         counter = 0
         linq_data = List(data).all(func_samson)
-        print(data)
         self.assertEqual(linq_data, False)
-        self.assertEqual(counter,3)
+        self.assertEqual(counter,2)  # One true, then false
+
+        data = [
+            Person('jake', 'samson', None, 32),
+            Person('sam', 'samson', None, 44),
+            Person('sarah', 'samson', None, 41),
+            Person('zoe', 'samson', None, 27),
+        ]
+
+        counter = 0
+        linq_data = List(data).all(func_samson)
+        self.assertEqual(linq_data, True)
+        self.assertEqual(counter, 4) # all 4 true
+
 
 
 
