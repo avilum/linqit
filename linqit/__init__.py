@@ -111,9 +111,10 @@ class List(list):
         """
         Returns False if all of the objects fail the expression. Returns True otherwise.
         """
-        for i in self:
-            if not expression(i):
-                return False
+        if self:
+            for i in self:
+                if not expression(i):
+                    return False
         return True
 
     def any(self, expression=_NO_EXPR):
@@ -124,7 +125,7 @@ class List(list):
             for i in self:
                 if expression(i):
                     return True
-        return False  # for an empty iterable, all returns True!
+        return False  # for an empty iterable, all returns False!
 
     def concat(self, second):
         """
@@ -156,17 +157,14 @@ class List(list):
         Returns the first object that fulfills an expression.
         If the expression is not specified, returns the first element.
         """
-        try:
-            err = IndexError('No matching values')
-            if self:
-                for el in self:
-                    if expression(el):
-                        return(el)
-            raise err
-        except IndexError:
-            if default != _NONE:
-                return default
-            raise
+        if self:
+            for el in self:
+                if expression(el):
+                    return(el)
+        if default != _NONE:
+            return default
+        else:
+            raise IndexError('No matching values')
 
     def get_by_attr(self, attr):
         """
