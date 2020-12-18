@@ -30,9 +30,9 @@ last_hot_pizza_slice = (
 # What do you think?
 ```
 
-We all use multiple aggregations in our code, while multiple filters/comprehentions are not pythonic at all.<br>
+We all use multiple aggregations in our code, while multiple filters/comprehensions are not pythonic at all.<br>
 The whole idea is is to use it for nested, multiple filters/modifications :).<br>
-Some of the methods might look rediculous for a single call, comparing to the regular python syntax.<br>
+Some of the methods might look ridiculous for a single calls, comparing to the regular python syntax.<br>
 Here are some use cases: <br>
 
 #### Methods:
