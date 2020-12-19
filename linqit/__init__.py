@@ -6,6 +6,8 @@ DEFAULT_LAZY = True
 # A default variable for the function, so None as an argument will be valid, but not default.
 _NONE = type('_NONE', (object,), {})
 
+# Allows truthy filters
+_NO_EXPR = lambda x:x
 
 class List(list):
     """
@@ -105,21 +107,25 @@ class List(list):
         """
         return sorted(self)
 
-    def all(self, expression):
+    def all(self, expression=_NO_EXPR):
         """
-        Returns True if all of the objects fulfill the expression. Returns False otherwise.
+        Returns False if all of the objects fail the expression. Returns True otherwise.
         """
-        return len(List(filter(expression, self))) == len(self)
+        if self:
+            for i in self:
+                if not expression(i):
+                    return False
+        return True
 
-    def any(self, expression=_NONE):
+    def any(self, expression=_NO_EXPR):
         """
         Returns True if any of the objects fulfill the expression. Returns False otherwise.
         """
-        if not self:
-            return False
-        if expression == _NONE:
-            return True
-        return len(List(filter(expression, self))) > 0
+        if self:
+            for i in self:
+                if expression(i):
+                    return True
+        return False  # for an empty iterable, all returns False!
 
     def concat(self, second):
         """
@@ -146,25 +152,19 @@ class List(list):
         """
         return List(filter(lambda e: not expression(e), self))
 
-    def first(self, expression=None, default=_NONE):
+    def first(self, expression=_NO_EXPR, default=_NONE):
         """
         Returns the first object that fulfills an expression.
         If the expression is not specified, returns the first element.
         """
-        try:
-            err = IndexError('No matching values')
-            if not self:
-                raise err
-            if not expression:
-                return self[0]
-            selection = List(filter(expression, self))
-            if not selection:
-                raise err
-            return selection[0]
-        except IndexError:
-            if default != _NONE:
-                return default
-            raise
+        if self:
+            for el in self:
+                if expression(el):
+                    return(el)
+        if default != _NONE:
+            return default
+        else:
+            raise IndexError('No matching values')
 
     def get_by_attr(self, attr):
         """
@@ -182,25 +182,12 @@ class List(list):
         """
         return List(filter(lambda e: e in second, self))
 
-    def last(self, expression=None, default=_NONE):
+    def last(self, expression=_NO_EXPR, default=_NONE):
         """
         Returns the last object that fulfills an expression.
         If the expression is not specified, returns the last element.
         """
-        try:
-            err = IndexError('No matching values')
-            if not self:
-                raise err
-            if not expression:
-                return self[-1]
-            selection = List(filter(expression, self))
-            if not selection:
-                raise err
-            return selection[-1]
-        except IndexError:
-            if default != _NONE:
-                return default
-            raise
+        return List(reversed(self)).first(expression,default)
 
     def order_by(self, expression=None):
         """
