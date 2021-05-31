@@ -216,11 +216,16 @@ class List(list):
             return List()
         return self[:count]
 
-    def where(self, expression):
+    def where(self, expression=None, **filters):
         """
         Returns all the objects that fulfill an expression (objects that return True for the expression).
         """
-        selection = filter(expression, self)
+        def filter_function(x):
+            return (expression is None or expression(x)) and all([
+                getattr(x, key) == value
+                for key, value in filters.items()
+            ])
+        selection = filter(filter_function, self)
         return List(selection)
 
     def of_type(self, _type):

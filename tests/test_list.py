@@ -136,6 +136,18 @@ class ListTests(TestCase):
     def test_where_method(self):
         self.assertEqual(self.list.where(lambda p: p.name == 'bob')[0], self.list[0])
 
+    def test_where_method_without_expression(self):
+        self.assertEqual(self.list.where(), self.list)
+
+    def test_where_method_with_filter_kwargs(self):
+        self.assertEqual(self.list.where(name='bob')[0], self.list[0])
+
+    def test_where_method_with_expression_and_filter_kwargs(self):
+        self.assertEqual(self.list.where(lambda x: len(x.name) == 4, age=20)[0], self.list[1])
+
+    def test_where_method_with_multiple_filter_kwargs(self):
+        self.assertEqual(self.list.where(name='bob', age=15), [])
+
     def test_first_method(self):
         self.assertEqual(self.list.first(lambda p: p.name == 'bob'), self.list[0])
 
