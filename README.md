@@ -4,7 +4,7 @@ Write clean code with powerful syntax.<br><br>
 ```shell script
 pip install linqit
 ```
-Stop using loops, complex conditions, list comperhension and filters.<br>
+Stop using loops, complex conditions, list comprehension and filters.<br>
 Doesn't it looks better? <br>
 ```python
 from seven_dwwarfs import Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey, Doc
@@ -72,7 +72,7 @@ class Person():
         self.age = age
 
     def __repr__(self):
-        return 'Person(name="{}", age={})'.format(self.name, self.age)
+        return f'Person(name="{self.name}", age={self.age})')
 
 
 # Creating a list of people
