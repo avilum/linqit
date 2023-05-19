@@ -4,6 +4,12 @@ Write clean code with powerful syntax.<br><br>
 ```shell script
 pip install linqit
 ```
+<center>
+<img src="https://img.shields.io/badge/Test Coverage-96%25-brightgreen">
+</center>
+<br>
+
+
 Stop using loops, complex conditions, list comprehension and filters.<br>
 Doesn't it looks better? <br>
 ```python
@@ -113,4 +119,17 @@ teenagers_names.take(2).except_for(lambda n: n == 'Danny')      # ['Chris']
 teenagers.age.min                                               # 16
 teenagers.age.avg                                               # 17
 teenagers.age.max                                               # 18
+```
+
+# Test Coverage
+```python
+➜  linqit git:(master) ✗ coverage report                    
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+linqit/__init__.py        2      0   100%
+linqit/linq_list.py     101     11    89%
+tests/__init__.py         0      0   100%
+tests/test_list.py      203      0   100%
+-----------------------------------------
+TOTAL                   306     11    96%
 ```
