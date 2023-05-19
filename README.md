@@ -89,13 +89,13 @@ people = List(avi, bill, bob, harry)
 
 ## Use LINQ selections, write cleaner code
 ```python
-old_people = people.where(lambda p: p.age > 23) # It's a joke! :) [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
-old_people.first()                                              # <Person name="Bill" age="41">
-old_people.last()                                               # <Person name="Harry" age="55">
-old_people.any(lambda p: p.name.lower().startswith('b'))        # True
-old_people.where(age=55)                         # [<Person name="Harry" age="55">]
-old_people.skip(3).any()                                        # False
-old_people.skip(2).first()                                      # <Person name="Harry" age="55">
+people = people.where(lambda p: p.age > 23) # [<Person name="Bill" age="41">, <Person name="Bob" age="77">, <Person name="Harry" age="55">]
+people.first()                                              # <Person name="Bill" age="41">
+people.last()                                               # <Person name="Harry" age="55">
+people.any(lambda p: p.name.lower().startswith('b'))        # True
+people.where(age=55)                         # [<Person name="Harry" age="55">]
+people.skip(3).any()                                        # False
+people.skip(2).first()                                      # <Person name="Harry" age="55">
 
 # Isn't it better than "for", "if", "else", "filter", "map" and list comprehensions in the middle of your code?
 
