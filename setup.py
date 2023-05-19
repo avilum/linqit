@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="linqit",
-    version="0.1.3",
+    version="0.1.5",
     author="Avi Lumelsky",
     author_email="noticetheg@gmail.com",
     description="Extends python's list builtin with fun, robust functionality - "
