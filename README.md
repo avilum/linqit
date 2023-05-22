@@ -13,12 +13,12 @@ pip install linqit
 Stop using loops, complex conditions, list comprehension and filters.<br>
 Doesn't it looks better? <br>
 ```python
-from seven_dwwarfs import Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey, Doc
 from linqit import List
 
 # Go ahead and fill the list with whatever you want... like a list of <Programmer> objects.
 programmers = List()
 Avi = type("Avi", (), {})
+Entrepreneur = type("Entrepreneur", ('talented'), {})
 elon_musk = Entrepreneur(talented=True)
 
 # Then play:
